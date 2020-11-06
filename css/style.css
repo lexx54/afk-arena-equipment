@@ -1,10 +1,10 @@
 .section {
   width: 100%;
   /* height: 60vh; */
-  border: 1px solid black;
+  /* border: 1px solid black; */
 }
 .principal-elements {
-  border: 1px solid blue;
+  /* border: 1px solid blue; */
 }
 #form {
   display: flex;
@@ -13,7 +13,7 @@
   /* justify-content: space-around; */
   /* align-items: center; */
   /* height: 40vh; */
-  border: 1px solid yellow;
+  /* border: 1px solid yellow; */
   padding: 1em 3em;
 }
 .form-content {
@@ -21,21 +21,29 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-top: 1em;
+  padding-top: 1.5em;
+  padding-bottom: 1em;
+  border-bottom: 1px solid blue;
 }
 .form-content-left {
-  font-size: 2em;
+  font-size: 1.5em;
 }
 .form-content-right {
   display: flex;
-  font-size: 1.5em;
+  /* font-size: 1.5em; */
   flex-wrap: wrap;
   align-items: center;
-  justify-content: end;
+  justify-content: space-between;
   width: 50%;
 }
 .form-content-right * {
   flex: 0 0 35%;
+  /* padding-top: 0.5em; */
+}
+.form-content-right input {
+  width: 2em;
+  height: 2em;
+  margin-top: 0.4em;
 }
 #form label {
   /* width: 30%;
@@ -55,4 +63,12 @@
   justify-content: space-around;
   align-items: center;
   padding: 1em;
+}
+@media screen and (min-width: 720px) {
+  .form-content-right {
+    font-size: 1.5em;
+  }
+  .form-content-left {
+    font-size: 2em;
+  }
 }
