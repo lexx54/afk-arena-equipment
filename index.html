@@ -13,13 +13,19 @@
     <main>
       <section class="section" id="principal">
         <form action="" id="form" class="principal-elements">
-          <article>
-            <label for="hero">Hero's Name</label>
-            <input type="text" id="hero" name="hero" placeholder="E.g Eiroon" />
+          <article class="form-content">
+            <label for="hero" class="form-content-left">Hero's Name</label>
+            <input
+              type="text"
+              id="hero"
+              name="hero"
+              placeholder="E.g Eiroon"
+              class="form-content-right"
+            />
           </article>
-          <article>
-            <p>Equipment</p>
-            <div id="equipment">
+          <article class="form-content">
+            <p class="form-content-left">Equipment</p>
+            <div id="equipment" class="form-content-right">
               <label for="hat">Hat</label>
               <input type="radio" id="hat" value="hat" name="hat" />
               <label for="weapon">Weapon</label>
@@ -30,8 +36,8 @@
               <input type="radio" id="boots" value="boots" name="boots" />
             </div>
           </article>
-          <article>
-            <label for="star">Stars</label>
+          <article class="form-content">
+            <label for="star" class="form-content-left">Stars</label>
             <input
               type="number"
               name="star"
@@ -39,11 +45,12 @@
               min="1"
               max="5"
               placeholder="1-5"
+              class="form-content-right"
             />
           </article>
-          <article>
-            <label for="faction">Faction</label>
-            <div id="faction">
+          <article class="form-content">
+            <p class="form-content-left">Faction</p>
+            <div id="faction" class="form-content-right">
               <label for="lightbearer">LightBearer</label>
               <input
                 type="radio"
@@ -64,9 +71,9 @@
               />
             </div>
           </article>
-          <article>
-            <p>Level</p>
-            <div id="level">
+          <article class="form-content">
+            <p class="form-content-left">Level</p>
+            <div id="level" class="form-content-right">
               <label for="zero">Zero</label>
               <input type="radio" id="zero" name="zero" />
               <label for="T1">T1</label>
