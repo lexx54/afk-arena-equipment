@@ -14,7 +14,7 @@ export function setData(...values){
 
   const data=new Hero($heroNameValue,$equipmentValue,$starValue,$factionValue,$levelValue);
   cleaning(values);
-  return data
+  return data;
   
 
   // console.log($equipmentValue)
@@ -38,11 +38,13 @@ export function setData(...values){
 export function getData(localName){
   console.log("hola")
   let info=JSON.parse(localStorage.getItem(localName));
-  console.group(info)
+  // console.group(info)
+  return info;
 }
 
-export function deleteData(localName){
-  localStorage.removeItem(localName)
+export function deleteData(localName,store){
+  localStorage.removeItem(localName);
+  store=[];
   console.log("adios")
 
 }
