@@ -1,17 +1,20 @@
 export function setData(...values){
   const $heroName=document.getElementById(values[0]),
-    $equipment=document.getElementById(values[1]),
-    $star=document.getElementById(values[2]),
-    $faction=document.getElementById(values[3]),
-    $level=document.getElementById(values[4]),
-    data=[];
+      $equipment=document.getElementById(values[1]).children,
+      $star=document.getElementById(values[2]),
+      $faction=document.getElementById(values[3]).children,
+      $level=document.getElementById(values[4]).children,
+      data={};
+
   let $heroNameValue=$heroName.value,
-    $equipmentValue=$equipment.value,
+    $equipmentValue=equipmentChecker($equipment),
     $starValue=$star.value,
-    $factionValue=$faction.value,
-    $levelValue=$level.value;
-    
-  console.log($equipmentValue)
+    $factionValue=factionChecker($faction),
+    $levelValue=levelChecker($level);
+
+  
+
+  // console.log($equipmentValue)
     if ($heroNameValue==="") $heroName.focus();
     else if ($starValue==="") $star.focus();
     else if ($factionValue==="")$faction.focus();
@@ -39,4 +42,22 @@ export function deleteData(localName){
   localStorage.removeItem(localName)
   console.log("adios")
 
+}
+
+function equipmentChecker(equipment){
+  for (let ele of equipment){
+    if (ele.checked===true) return ele.value;
+  }
+}
+
+function factionChecker(faction){
+  for (let ele of faction){
+    if (ele.checked===true) return ele.value;
+  }
+}
+
+function levelChecker(level){
+  for (let ele of faction){
+    if (ele.checked===true) return ele.value;
+  }
 }
