@@ -1,10 +1,16 @@
+body {
+  background: url(../images/afkArena.jpg) center;
+}
 .section {
   width: 100%;
   /* height: 60vh; */
   /* border: 1px solid black; */
 }
 .principal-elements {
+  width: 80%;
+  margin: 0 auto;
   /* border: 1px solid blue; */
+  background-color: rgba(255, 255, 255, 0.8);
 }
 #form {
   display: flex;
@@ -38,7 +44,6 @@
 }
 .form-content-right * {
   flex: 0 0 35%;
-  /* padding-top: 0.5em; */
 }
 .form-content-right input {
   width: 2em;
@@ -65,10 +70,24 @@
   padding: 1em;
 }
 @media screen and (min-width: 720px) {
+  .section {
+    max-width: 80%;
+    margin: 0 auto;
+  }
   .form-content-right {
     font-size: 1.5em;
   }
+  .form-content-right input {
+    width: 1em;
+    height: 1em;
+    margin-top: 0.2em;
+  }
   .form-content-left {
     font-size: 2em;
+  }
+}
+@media screen and (min-width: 1020px) {
+  .principal-elements {
+    width: 60%;
   }
 }
