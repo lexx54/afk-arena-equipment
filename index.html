@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AFK heroes Equipment</title>
+    <style>
+      @import url(css/reset.css);
+      @import url(css/style.css);
+    </style>
+  </head>
+  <body>
+    <main>
+      <section class="section" id="principal">
+        <form action="" id="form" class="principal-elements">
+          <article>
+            <label for="hero">Hero's Name</label>
+            <input type="text" id="hero" name="hero" placeholder="E.g Eiroon" />
+          </article>
+          <article>
+            <p>Equipment</p>
+            <div id="equipment">
+              <label for="hat">Hat</label>
+              <input type="radio" id="hat" value="hat" name="hat" />
+              <label for="weapon">Weapon</label>
+              <input type="radio" id="weapon" value="weapon" name="weapon" />
+              <label for="chest">Chest</label>
+              <input type="radio" id="chest" value="chest" name="chest" />
+              <label for="boots">Boots</label>
+              <input type="radio" id="boots" value="boots" name="boots" />
+            </div>
+          </article>
+          <article>
+            <label for="star">Stars</label>
+            <input
+              type="number"
+              name="star"
+              id="star"
+              min="1"
+              max="5"
+              placeholder="1-5"
+            />
+          </article>
+          <article>
+            <label for="faction">Faction</label>
+            <div id="faction">
+              <label for="lightbearer">LightBearer</label>
+              <input
+                type="radio"
+                name="lightbearer"
+                id="lightbearer"
+                value="lightbearer"
+              />
+              <label for="wilderr">Wilderr</label>
+              <input type="radio" name="wilder" id="wilder" value="wilder" />
+              <label for="mauler">Mauler</label>
+              <input type="radio" name="mauler" id="mauler" value="mauler" />
+              <label for="graveborn">GraveBorn</label>
+              <input
+                type="radio"
+                name="graveborn"
+                id="graveborn"
+                value="graveborn"
+              />
+            </div>
+          </article>
+          <article>
+            <p>Level</p>
+            <div id="level">
+              <label for="zero">Zero</label>
+              <input type="radio" id="zero" name="zero" />
+              <label for="T1">T1</label>
+              <input type="radio" id="T1" name="T1" />
+              <label for="T2">T2</label>
+              <input type="radio" id="T2" name="T2" />
+            </div>
+          </article>
+        </form>
+        <div id="btn-container" class="principal-elements">
+          <button type="button" id="btn-form" class="test">Safe Data</button>
+          <button type="button" id="btn-form-get">Get Data</button>
+          <button type="button" id="btn-form-delete">Erase Data</button>
+        </div>
+      </section>
+      <section class="section" id="shower"></section>
+    </main>
+    <script src="scripts/script.js" type="module"></script>
+  </body>
+</html>
