@@ -21,21 +21,13 @@ d.addEventListener("click",e=>{
   }
   if (e.target.matches('#btn-form-get')){
     createCard(getData("hero-info"),$showContainer)
-    // gather();
   }
   if (e.target.matches("#btn-form-delete")){
     deleteData('hero-info',data,$showContainer);
     console.log(data)
   }
+  if (e.target.matches('#btn-form-hide')){
+    $showContainer.innerHTML='';
+  }
 
 })
-
-function gather(listOfObjects){
-  let heroesName= listOfObjects.map((ele)=>{
-    return ele.name;
-  })
-  for (let i=0; i<listOfObjects.length;i++){
-
-  }
-  console.log(heroesName)
-}

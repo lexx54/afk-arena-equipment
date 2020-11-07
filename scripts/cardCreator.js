@@ -40,7 +40,7 @@ if (!json){
     const eleNeed = document.createElement("ul");
 
     container.classList.add("hero-card");
-    titleName.textContent = json[i].name.to;
+    titleName.textContent = json[i].name.toUpperCase();
     faction.textContent = json[i]['heroFaction'];
     need.textContent = "needs to max power: ";
 
