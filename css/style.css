@@ -86,6 +86,9 @@ body {
 .hero-card:not(:last-child) {
   margin-right: 0.5em;
 }
+.equipment {
+  color: red;
+}
 /*-----------------------------alert message display------------------------*/
 .message-alert {
   font-size: 3em;

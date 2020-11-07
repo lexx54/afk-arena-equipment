@@ -40,17 +40,11 @@ if (!json){
     const eleNeed = document.createElement("ul");
 
     container.classList.add("hero-card");
-    titleName.textContent = json[i].name;
+    titleName.textContent = json[i].name.to;
     faction.textContent = json[i]['heroFaction'];
-    need.textContent = "Needs: ";
-
-  // console.log(json[i])
-
-    const jsonKeys = Object.keys(json[i]);
-    console.log(jsonKeys);
+    need.textContent = "needs to max power: ";
 
     const hat = json[i].hat;
-    console.log(hat)
     for (let ele in hat) console.log(ele)
 
     for (let ele in hat) {
@@ -59,46 +53,48 @@ if (!json){
       if (hat[ele] === hat.star)
         starCheck(hat[ele], eleNeed, "Hat");
       if (hat[ele] === hat.faction)
-        factionCheck(hat[ele], eleNeed, json[jsonKeys[2]], "Hat");
+        factionCheck(hat[ele], eleNeed, json[i]["heroFaction"], "Hat");
       if (hat[ele] == hat.level)
         levelCheck(hat[ele], eleNeed, "Hat");
     }
 
-    // const weapon = json[i].weapon;
-    // for (let ele in weapon) {
-    //   if (weapon[ele] === weapon.mythic)
-    //     mythicCheck(weapon[ele], eleNeed, json[i].faction, jsonKeys[2]);
-    //   if (weapon[ele] == weapon.level)
-    //     levelCheck(weapon[ele], eleNeed, jsonKeys[2]);
-    //   if (weapon[ele] === weapon.stars)
-    //     starCheck(weapon[ele], eleNeed, jsonKeys[2]);
-    //   if (weapon[ele] === weapon.faction)
-    //     factionCheck(weapon[ele], eleNeed, json[i].faction, jsonKeys[2]);
-    // }
+    const weapon = json[i].weapon;
+    // for (let ele in weapon) console.log(ele)
+    for (let ele in weapon) {
+      // if (weapon[ele] === weapon.mythic)
+      //   mythicCheck(weapon[ele], eleNeed, json[i].faction, jsonKeys[2]);
+      if (weapon[ele] === weapon.star){
+        console.log(weapon[ele])
+        starCheck(weapon[ele], eleNeed, "Weapon");}
+      if (weapon[ele] === weapon.faction)
+        factionCheck(weapon[ele], eleNeed, json[i]["heroFaction"], "Weapon");
+      if (weapon[ele] == weapon.level)
+        levelCheck(weapon[ele], eleNeed, "Weapon"); 
+    }
 
-    // const boots = json[i].boots;
-    // for (let ele in boots) {
-    //   if (boots[ele] === boots.mythic)
-    //     mythicCheck(boots[ele], eleNeed, json[i].faction, jsonKeys[3]);
-    //   if (boots[ele] == boots.level)
-    //     levelCheck(boots[ele], eleNeed, jsonKeys[3]);
-    //   if (boots[ele] === boots.stars)
-    //     starCheck(boots[ele], eleNeed, jsonKeys[3]);
-    //   if (boots[ele] === boots.faction)
-    //     factionCheck(boots[ele], eleNeed, json[i].faction, jsonKeys[3]);
-    // }
+    const boots = json[i].boots;
+    for (let ele in boots) {
+      // if (boots[ele] === boots.mythic)
+      //   mythicCheck(boots[ele], eleNeed, json[i].faction, jsonKeys[3]);
+      if (boots[ele] == boots.level)
+        levelCheck(boots[ele], eleNeed, 'Boots');
+      if (boots[ele] === boots.star)
+        starCheck(boots[ele], eleNeed, 'Boots');
+      if (boots[ele] === boots.faction)
+        factionCheck(boots[ele], eleNeed, json[i]['heroFaction'], 'Boots');
+    }
 
-    // const chest = json[i].chest;
-    // for (let ele in chest) {
-    //   if (chest[ele] === chest.mythic)
-    //     mythicCheck(chest[ele], eleNeed, json[i].faction, jsonKeys[4]);
-    //   if (chest[ele] == chest.level)
-    //     levelCheck(chest[ele], eleNeed, jsonKeys[4]);
-    //   if (chest[ele] === chest.stars)
-    //     starCheck(chest[ele], eleNeed, jsonKeys[4]);
-    //   if (chest[ele] === chest.faction)
-    //     factionCheck(chest[ele], eleNeed, json[i].faction, jsonKeys[4]);
-    // }
+    const chest = json[i].chest;
+    for (let ele in chest) {
+      // if (chest[ele] === chest.mythic)
+      //   mythicCheck(chest[ele], eleNeed, json[i].faction, jsonKeys[4]);
+      if (chest[ele] == chest.level)
+        levelCheck(chest[ele], eleNeed, 'Chest');
+      if (chest[ele] === chest.star)
+        starCheck(chest[ele], eleNeed, 'Chest');
+      if (chest[ele] === chest.faction)
+        factionCheck(chest[ele], eleNeed, json[i]['heroFaction'], 'Chest');
+    }
 
     container.appendChild(titleName);
     container.appendChild(faction);
@@ -110,17 +106,29 @@ if (!json){
 }
 }
 function levelCheck(element, object, equipment) {
-  if (element === "T0") {
-    const li = document.createElement("li");
-    li.textContent = `${equipment} needs to increase to T1`;
-    object.appendChild(li);
+  const li = document.createElement("li");
+  switch(element){
+    case 'zero':
+      
+      li.innerHTML = `<span class="equipment">${equipment}</span> needs 2 stones to T2`;
+      object.appendChild(li);
+    break;
+    case "T1":
+      li.innerHTML = `<span class="equipment">${equipment}</span> needs 1 stones to T2`;
+      object.appendChild(li);
+    break;
   }
+  // if (element === "T0") {
+  //   const li = document.createElement("li");
+  //   li.textContent = `${equipment} needs to increase to T1`;
+  //   object.appendChild(li);
+  // }
 }
 
 function mythicCheck(element, object, word, equipment) {
   if (element === false) {
     const li = document.createElement("li");
-    li.textContent = `${equipment} needs a faction equipment (${word})`;
+    li.innerHTML = `<span class="equipment">${equipment}</span> needs a faction equipment (${word})`;
     object.appendChild(li);
   }
 }
@@ -128,9 +136,9 @@ function mythicCheck(element, object, word, equipment) {
 function starCheck(element, object, equipment) {
   if (element < 5) {
     const li = document.createElement("li");
-    li.textContent = `${equipment} needs to increase ${
+    li.innerHTML = `<span class="equipment">${equipment}</span> needs to increase ${
       5 - element
-    } levels`;
+    } stars`;
     object.appendChild(li);
   }
 }
@@ -138,7 +146,7 @@ function starCheck(element, object, equipment) {
 function factionCheck(element, object, heroFac, equipment) {
   if (element != heroFac) {
     const li = document.createElement("li");
-    li.textContent = `${equipment} need a ${heroFac} equipment`;
+    li.innerHTML = `<span class="equipment">${equipment}</span> need a ${heroFac} equipment`;
     object.appendChild(li);
   }
 }
