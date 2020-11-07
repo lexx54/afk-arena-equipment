@@ -1,37 +1,12 @@
-// const header = document.querySelector("#title");
-// const section = document.querySelector("#heroes");
-
-// const request = new XMLHttpRequest();
-// request.open(
-//   "get",
-//   "http://www.json-generator.com/api/json/get/cfYcqtZwRK?indent=2"
-// );
-// request.responseType = "json";
-// request.send();
-
-// request.onload = () => {
-//   const info = request.response;
-//   console.log(info);
-//   createTitle();
-//   createCard(info);
-// };
-
-// function createTitle() {
-//   const title = document.createElement("h1");
-//   title.textContent = "AFK Heroes Priority";
-//   header.appendChild(title);
-// }
-
 export function createCard(json,section) {
-if (!json){
+  if (!json){
   const message=document.createElement("p");
   message.textContent="You haven't keep trace of any equipment";
   message.classList.add("message-alert");
   section.appendChild(message);
-  // setTimeout(eraseMessage(section),3000)
   eraseMessage(section);
 
-}else {
+  } else {
   for (let i = 0; i < json.length; i++) {
     const container = document.createElement("article");
     const titleName = document.createElement("h2");
@@ -45,8 +20,6 @@ if (!json){
     need.textContent = "needs to max power: ";
 
     const hat = json[i].hat;
-    for (let ele in hat) console.log(ele)
-
     for (let ele in hat) {
       // if (hat[ele] === hat.mythic)
       //   mythicCheck(hat[ele], eleNeed, json[i].faction, jsonKeys[5]);
@@ -59,7 +32,6 @@ if (!json){
     }
 
     const weapon = json[i].weapon;
-    // for (let ele in weapon) console.log(ele)
     for (let ele in weapon) {
       // if (weapon[ele] === weapon.mythic)
       //   mythicCheck(weapon[ele], eleNeed, json[i].faction, jsonKeys[2]);
@@ -109,7 +81,6 @@ function levelCheck(element, object, equipment) {
   const li = document.createElement("li");
   switch(element){
     case 'zero':
-      
       li.innerHTML = `<span class="equipment">${equipment}</span> needs 2 stones to T2`;
       object.appendChild(li);
     break;
@@ -118,11 +89,6 @@ function levelCheck(element, object, equipment) {
       object.appendChild(li);
     break;
   }
-  // if (element === "T0") {
-  //   const li = document.createElement("li");
-  //   li.textContent = `${equipment} needs to increase to T1`;
-  //   object.appendChild(li);
-  // }
 }
 
 function mythicCheck(element, object, word, equipment) {

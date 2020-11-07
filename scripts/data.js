@@ -22,7 +22,6 @@ export function setData(...values){
 export function getData(localName){
   console.log("hola")
   let info=JSON.parse(localStorage.getItem(localName));
-  // console.group(info)
   return info;
 }
 
@@ -39,23 +38,7 @@ function checker(obj){
     if (ele.checked===true) return ele.value;
   }
 }
-// function equipmentChecker(equipment){
-//   for (let ele of equipment){
-//     if (ele.checked===true) return ele.value;
-//   }
-// }
 
-// function factionChecker(faction){
-//   for (let ele of faction){
-//     if (ele.checked===true) return ele.value;
-//   }
-// }
-
-// function levelChecker(level){
-//   for (let ele of level){
-//     if (ele.checked===true) return ele.value;
-//   }
-// }
 function cleaning(list){
   for (let i=0 ; i<list.length ; i++){
     if (i===0 ||i===3){

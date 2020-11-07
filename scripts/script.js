@@ -20,6 +20,7 @@ d.addEventListener("click",e=>{
     localStorage.setItem("hero-info",JSON.stringify(data));
   }
   if (e.target.matches('#btn-form-get')){
+    $showContainer.innerHTML='';
     createCard(getData("hero-info"),$showContainer)
   }
   if (e.target.matches("#btn-form-delete")){
